@@ -142,3 +142,22 @@ module.exports.createTask = async (req, res) => {
     });
   }
 };
+
+// [PATCH] api/v1/tasks/edit/:id
+module.exports.editTask = async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    await Task.updateOne({ _id: id }, req.body);
+
+    res.json({
+      code: 200,
+      message: "Chỉnh sửa thành công!",
+    });
+  } catch (error) {
+    res.json({
+      code: 400,
+      message: "Lỗi!",
+    });
+  }
+};

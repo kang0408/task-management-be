@@ -13,4 +13,6 @@ router.patch("/change-multi", controller.changeMulti);
 
 router.post("/create", controller.createTask);
 
+router.patch("/edit/:id", controller.editTask);
+
 module.exports = router;
