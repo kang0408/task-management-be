@@ -7,4 +7,6 @@ router.get("", controller.tasks);
 
 router.get("/details/:id", controller.detailsTask);
 
+router.patch("/change-status/:id", controller.changeStatus);
+
 module.exports = router;
