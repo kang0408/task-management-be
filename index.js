@@ -5,6 +5,7 @@ require("dotenv").config();
 const database = require("./config/database.js");
 database.connect();
 
+// Routes
 const routes = require("./api/v1/routes/index.routes.js");
 
 const app = express();
