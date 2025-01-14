@@ -125,7 +125,7 @@ module.exports.forgotPassword = async (req, res) => {
   });
 };
 
-// [POST] api/get/users/password/otp
+// [POST] api/v1/users/password/otp
 module.exports.verifyOTP = async (req, res) => {
   const email = req.body.email;
   const otp = req.body.otp;
@@ -158,7 +158,7 @@ module.exports.verifyOTP = async (req, res) => {
   });
 };
 
-// [POST] api/get/users/password/reset
+// [POST] api/v1/users/password/reset
 module.exports.resetPassword = async (req, res) => {
   const token = req.body.token;
   const password = req.body.password;
@@ -187,5 +187,21 @@ module.exports.resetPassword = async (req, res) => {
   res.json({
     code: 200,
     message: "Đổi mật khẩu thành công",
+  });
+};
+
+// [GET] api/v1/users/details
+module.exports.details = async (req, res) => {
+  const token = req.cookies.token;
+
+  const user = await User.findOne({
+    token: token,
+    deleted: false,
+  }).select("-password -token");
+
+  res.json({
+    code: 200,
+    message: "Thành công",
+    data: user,
   });
 };
