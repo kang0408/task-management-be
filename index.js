@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors"); // CORS
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
 // Kết nối với database
@@ -15,6 +16,7 @@ const app = express();
 const port = 3000;
 
 // parse application/json
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(cors);
 
