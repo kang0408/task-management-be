@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors"); // CORS
 const bodyParser = require("body-parser");
 require("dotenv").config();
 
@@ -15,6 +16,7 @@ const port = 3000;
 
 // parse application/json
 app.use(bodyParser.json());
+app.use(cors);
 
 routes(app);
 
