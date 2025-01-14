@@ -9,4 +9,7 @@ router.post("/register", controller.register);
 // Cần validate
 router.post("/login", controller.login);
 
+// Cần validate
+router.post("/password/forgot", controller.forgotPassword);
+
 module.exports = router;
