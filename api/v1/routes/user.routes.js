@@ -12,4 +12,6 @@ router.post("/login", controller.login);
 // Cần validate
 router.post("/password/forgot", controller.forgotPassword);
 
+router.post("password/otp", controller.verifyOTP);
+
 module.exports = router;
