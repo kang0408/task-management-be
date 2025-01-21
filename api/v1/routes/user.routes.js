@@ -1,5 +1,6 @@
 const express = require("express");
 const controller = require("../controllers/user.controller");
+const authMiddleware = require("../middlewares/auth.middleware");
 
 const router = express.Router();
 
@@ -16,6 +17,6 @@ router.post("password/otp", controller.verifyOTP);
 
 router.post("password/reset", controller.resetPassword);
 
-router.get("/details", controller.details)
+router.get("/details", authMiddleware.requestAuth, controller.details);
 
 module.exports = router;
