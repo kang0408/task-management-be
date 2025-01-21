@@ -5,6 +5,7 @@ const searchHelper = require("../../../helpers/search.helper");
 // [GET] api/v1/tasks
 module.exports.tasks = async (req, res) => {
   const find = {
+    $or: [{ createdBy: req.user.id }, { listUser: req.user.id }],
     deleted: false,
   };
 
