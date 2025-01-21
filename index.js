@@ -15,12 +15,13 @@ const app = express();
 // Lấy port từ biến môi trường
 const port = 3000;
 
-// parse application/json
-app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(cors);
 
 routes(app);
+
+// parse application/json
+app.use(cookieParser());
+app.use(cors);
 
 // Nghe port
 app.listen(port, () => {
