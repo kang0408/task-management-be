@@ -13,17 +13,15 @@ const routes = require("./api/v1/routes/index.routes.js");
 
 const app = express();
 // Lấy port từ biến môi trường
-const port = 3000;
 
+// parse application/json
+app.use(cors());
+app.use(cookieParser());
 app.use(bodyParser.json());
 
 routes(app);
 
-// parse application/json
-app.use(cookieParser());
-app.use(cors);
-
 // Nghe port
-app.listen(port, () => {
-  console.log(`App listening on port ${port}`);
+app.listen(3000, () => {
+  console.log(`App listening on port 3000`);
 });
